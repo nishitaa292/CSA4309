@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>College Library Management System</h1>
+
+<nav>
+    <button onclick="show('login')">Login</button>
+    <button onclick="show('register')">Register</button>
+    <button onclick="show('books')">Search Books</button>
+    <button onclick="show('materials')">Study Materials</button>
+    <button onclick="show('history')">Borrow History</button>
+    <button onclick="show('contact')">Contact</button>
+    <button onclick="logout()">Logout</button>
+
+    <div id="adminNav" hidden>
+        <button onclick="show('issue')">Issue / Return</button>
+        <button onclick="show('fine')">Manage Fines</button>
+    </div>
+</nav>
+
+<section id="login">
+    <h2>Login</h2>
+    <input id="loginUser" placeholder="Username">
+    <input id="loginPass" type="password" placeholder="Password">
+
+    <select id="role">
+        <option value="student">Student</option>
+        <option value="admin">Librarian Admin</option>
+    </select>
+
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+    <p>Admin: admin / admin123</p>
+</section>
+
+<section id="register" hidden>
+    <h2>Student Registration</h2>
+    <input id="regUser" placeholder="Username">
+    <input id="regPass" type="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+    <p id="regMsg"></p>
+</section>
+
+<section id="books" hidden>
+    <h2>Search Books</h2>
+    <input id="searchBook" placeholder="Book title or author">
+    <button onclick="displayBooks()">Search</button>
+    <div id="bookList"></div>
+
+    <div id="adminBooks" hidden>
+        <h3>Add Book</h3>
+        <input id="bookTitle" placeholder="Book Title">
+        <input id="bookAuthor" placeholder="Author">
+        <input id="bookQty" type="number" min="0"
+               placeholder="Number of Copies">
+        <button onclick="addBook()">Add Book</button>
+
+        <h3>Update / Delete Book</h3>
+        <input id="editId" type="number" placeholder="Book ID">
+        <input id="editTitle" placeholder="New Title">
+        <input id="editAuthor" placeholder="New Author">
+        <input id="editQty" type="number" min="0"
+               placeholder="New Total Copies">
+        <button onclick="updateBook()">Update Book</button>
+        <button onclick="deleteBook()">Delete Book</button>
+    </div>
+</section>
+
+<section id="issue" hidden>
+    <h2>Issue Book</h2>
+    <input id="issueStudent" placeholder="Student Username">
+    <input id="issueBookId" type="number" placeholder="Book ID">
+    <label>Issue Date</label>
+    <input id="issueDate" type="date">
+    <label>Expiry Date</label>
+    <input id="expDate" type="date">
+    <button onclick="issueBook()">Issue Book</button>
+
+    <h2>Return Book</h2>
+    <input id="returnId" type="number"
+           placeholder="Borrow Record ID">
+    <button onclick="returnBook()">Return Book</button>
+
+    <h2>Borrowing Records</h2>
+    <div id="allHistory"></div>
+</section>
+
+<section id="fine" hidden>
+    <h2>Fine Management</h2>
+    <p>Fine: ₹5 per overdue day.</p>
+    <input id="fineStudent" placeholder="Student Username">
+    <button onclick="checkFine()">Calculate Fine</button>
+    <p id="fineResult"></p>
+</section>
+
+<section id="materials" hidden>
+    <h2>Study Materials</h2>
+    <input id="searchMaterial"
+           placeholder="Search title, year or semester">
+    <button onclick="displayMaterials()">Search</button>
+    <div id="materialList"></div>
+
+    <div id="adminMaterials" hidden>
+        <h3>Add Study Material</h3>
+        <input id="matTitle" placeholder="Material Title">
+        <input id="matYear" placeholder="Year">
+        <input id="matSem" placeholder="Semester">
+        <input id="matLink" placeholder="PDF URL (optional)">
+        <button onclick="addMaterial()">Add Material</button>
+
+        <h3>Delete Material</h3>
+        <input id="deleteMatId" type="number"
+               placeholder="Material ID">
+        <button onclick="deleteMaterial()">Delete Material</button>
+    </div>
+</section>
+
+<section id="history" hidden>
+    <h2>My Borrow History</h2>
+    <div id="myHistory"></div>
+    <button onclick="checkFineForStudent()">Check My Fine</button>
+    <p id="myFine"></p>
+</section>
+
+<section id="contact" hidden>
+    <h2>Contact Library</h2>
+    <input id="contactName" placeholder="Your Name">
+    <input id="contactEmail" type="email" placeholder="Email">
+    <textarea id="contactMessage"
+              placeholder="Your Message"></textarea>
+    <button onclick="sendMessage()">Submit</button>
+    <p id="contactMsg"></p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
