@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Room Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Hotel Room Booking</h1>
+
+    <div class="box">
+        <h2>User Registration</h2>
+        <input type="text" id="name" placeholder="Enter Name">
+        <input type="email" id="email" placeholder="Enter Email">
+        <button onclick="register()">Register</button>
+        <p id="user"></p>
+    </div>
+
+    <div class="box">
+        <h2>Check Room Availability</h2>
+        <select id="room">
+            <option>Standard</option>
+            <option>Deluxe</option>
+            <option>Suite</option>
+            <option>Family</option>
+        </select>
+        <button onclick="checkRoom()">Check</button>
+        <p id="available"></p>
+    </div>
+
+    <div class="box">
+        <h2>Book a Room</h2>
+        <input type="date" id="date">
+        <button onclick="bookRoom()">Book Room</button>
+        <p id="booking"></p>
+    </div>
+
+    <div class="box">
+        <h2>Booking History</h2>
+        <p id="history"></p>
+        <button onclick="cancelBooking()">Cancel Booking</button>
+    </div>
+
+    <div class="box">
+        <h2>Admin Panel</h2>
+        <input type="number" id="price" placeholder="Enter Room Price">
+        <button onclick="changePrice()">Change Price</button>
+        <p id="admin"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
